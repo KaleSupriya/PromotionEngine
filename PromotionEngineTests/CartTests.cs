@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PromotionEngine;
+using System;
 using System.Collections.Generic;
 
 namespace PromotionEngineTests
@@ -30,6 +31,15 @@ namespace PromotionEngineTests
       var actual = c.GetPrice();
       //assert
       Assert.AreEqual(actual, 30);
+    }
+
+    [TestMethod("Should return cart price with multiple qty of single item")]
+    public void Should_throw_exception_empty_cart()
+    {
+      //arrange 
+      Cart c = new Cart();
+      //act & assert
+      Assert.ThrowsException<ArgumentNullException>(() => c.GetPrice());
     }
   }
 
