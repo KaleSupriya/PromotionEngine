@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace PromotionEngineTests
 {
   [TestClass]
-  class CartTests
+  public class CartTests
   {
     [TestMethod("Should return cart price")]
     public void Should_return_cart_price()
@@ -17,7 +17,7 @@ namespace PromotionEngineTests
       //act
       var result = c.GetPrice();
       //assert
-      Assert.Equals(result,0);
+      Assert.AreEqual(result,0);
     }
   }
 }
