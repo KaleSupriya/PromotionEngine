@@ -43,6 +43,25 @@ namespace PromotionEngineTests
       //assert
       Assert.AreEqual(actual, 0);
     }
+
+    [TestMethod("cart with multiple promo items returns promotion price")]
+    public void Should_Return_PromoPriceProducts()
+    {
+      //arrange
+     
+      var promoService = new PromotionService();
+     
+      Cart c = new Cart(new List<Product> {
+      new Product("A", 2, 10),
+      new Product("B", 1, 1)
+      }, promoService);
+
+      //act
+      var result = c.GetPrice();
+
+      //assert
+      Assert.AreEqual(result, 21);
+    }
   }
 
 }

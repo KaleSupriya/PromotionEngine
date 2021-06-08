@@ -9,9 +9,12 @@ namespace PromotionEngine
   public class Cart
   {
     private readonly List<Product> _products;
-    public Cart(List<Product> products = null)
+    private readonly IPromotionService _promotionService;
+
+    public Cart(List<Product> products = null, IPromotionService promotionService = null)
     {
       _products = products;
+      _promotionService = promotionService;
     }
     public int GetPrice()
     {
