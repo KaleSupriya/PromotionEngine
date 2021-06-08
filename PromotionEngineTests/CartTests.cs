@@ -12,9 +12,10 @@ namespace PromotionEngineTests
     public void Should_return_cart_price()
     {
       //arrange 
+      var promoService = new PromotionService();
       Cart c = new Cart(new List<Product> {
                             new Product("E", 10, 1),
-                            new Product("B", 10, 1)});
+                            new Product("B", 10, 1)}, promoService);
       //act
       var actual = c.GetPrice();
       //assert
@@ -24,9 +25,10 @@ namespace PromotionEngineTests
     public void Should_return_cart_price_for_multiple_qty()
     {
       //arrange 
+      var promoService = new PromotionService();
       Cart c = new Cart(new List<Product> {
                             new Product("E", 10, 2),
-                            new Product("B", 10, 1)});
+                            new Product("B", 10, 1)}, promoService);
       //act
       var actual = c.GetPrice();
       //assert

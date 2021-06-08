@@ -13,6 +13,10 @@ namespace PromotionEngine
     public (List<Product> products, int price) ApplyPromotion(List<Product> products)
     {
       int totalPromoPrice = 0;
+      if (Rules == null)
+      {
+        return (products, 0);
+      }
       foreach (PromotionRule rule in Rules)
       {
         var isOfferApplies = rule.Products.TrueForAll(s => products.Any(k => k.Name == s.Name && k.Quantity >= s.Quantity));
