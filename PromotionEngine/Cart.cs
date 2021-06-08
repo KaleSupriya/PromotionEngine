@@ -17,7 +17,11 @@ namespace PromotionEngine
     {
       try
       {
-        return _products.Sum(x => x.Price * x.Quantity);
+        if (_products != null)
+        {
+          return _products.Sum(x => x.Price * x.Quantity);
+        }
+        return 0;
       }
       catch (Exception e)
       {
