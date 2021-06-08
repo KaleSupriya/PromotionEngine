@@ -8,6 +8,6 @@ namespace PromotionEngine
 {
   public interface IPromotionService
   {
-    bool ApplyPromotion(List<Product> products);
+    (List<Product> products, int price) ApplyPromotion(List<Product> products);
   }
 }

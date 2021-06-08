@@ -22,7 +22,16 @@ namespace PromotionEngine
       {
         if (_products != null)
         {
-          return _products.Sum(x => x.Price * x.Quantity);
+          var result = _promotionService.ApplyPromotion(_products);
+          if (result.Item1 != null)
+          {
+            var noPromoProducts = result.Item1;
+            return noPromoProducts.Sum(x => x.Price * x.Quantity) + result.Item2;
+          }
+          else
+          {
+            return _products.Sum(x => x.Price * x.Quantity);
+          }
         }
         return 0;
       }
