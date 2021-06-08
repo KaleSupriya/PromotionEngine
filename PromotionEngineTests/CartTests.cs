@@ -15,9 +15,10 @@ namespace PromotionEngineTests
                             new Product("E", 10, 1),
                             new Product("B", 10, 1)});
       //act
-      var result = c.GetPrice();
+      var actual = c.GetPrice();
       //assert
-      Assert.AreEqual(result,0);
+      Assert.AreEqual(actual , 20);
     }
   }
+
 }
