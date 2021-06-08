@@ -8,6 +8,11 @@ namespace PromotionEngine
 {
   public class Cart
   {
+    private readonly List<Product> _products;
+    public Cart(List<Product> products = null)
+    {
+      _products = products;
+    }
     public int GetPrice()
     {
       try
