@@ -19,6 +19,18 @@ namespace PromotionEngineTests
       //assert
       Assert.AreEqual(actual , 20);
     }
+    [TestMethod("Should return cart price with multiple qty of single item")]
+    public void Should_return_cart_price_for_multiple_qty()
+    {
+      //arrange 
+      Cart c = new Cart(new List<Product> {
+                            new Product("E", 10, 2),
+                            new Product("B", 10, 1)});
+      //act
+      var actual = c.GetPrice();
+      //assert
+      Assert.AreEqual(actual, 30);
+    }
   }
 
 }
